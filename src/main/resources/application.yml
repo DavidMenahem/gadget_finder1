@@ -1,0 +1,25 @@
+
+logging:
+  level:
+    root: INFO
+spring:
+  jpa:
+    debug: true
+    database: mysql
+    hibernate:
+      #      enable_lazy_load_no_trans: true
+      ddl-auto: update
+    properties.hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
+
+  datasource:
+    max-active: 1
+    platform: mysql
+    url: jdbc:mysql://localhost:3306/gadget
+    username: root
+    password: 1234
+    driverClassName: com.mysql.cj.jdbc.Driver
+
+rsa:
+  private-key: classpath:certs/private.pem
+  public-key: classpath:certs/public.pem
+
