@@ -11,10 +11,9 @@ import org.springframework.web.bind.annotation.*;
 import java.io.IOException;
 import java.util.Optional;
 
-@CrossOrigin
 @RestController
 @RequiredArgsConstructor
-@RequestMapping
+@RequestMapping("login")
 public class AuthController {
 
     private final LoginService loginService;
