@@ -13,7 +13,7 @@ import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("login")
+@RequestMapping("/login")
 public class AuthController {
 
     private final LoginService loginService;
