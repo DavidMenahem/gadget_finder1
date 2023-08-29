@@ -13,14 +13,14 @@ import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("/user")
 public class AuthController {
 
     private final LoginService loginService;
 
     private final RegisterService registerService;
 
-    @PostMapping("/user/login")
-    @ResponseBody
+    @PostMapping("/login")
     public String login(@RequestBody Login login){
         Optional<Register> register = registerService.get(login.getEmail());
         if(register.isPresent()){
@@ -31,7 +31,7 @@ public class AuthController {
         }
         return "user not found";
     }
-    @PostMapping("/user/register")
+    @PostMapping("/register")
     public Register register(@RequestBody Register register){
         return registerService.register(register);
     }

@@ -1,6 +1,6 @@
-runtime: java
-runtime_config:
-  operating_system: "ubuntu18"
-  runtime_version: "17"
-env: flex
-service: gadget_api
+#runtime: java
+#runtime_config:
+#  operating_system: "ubuntu18"
+#  runtime_version: "17"
+#env: flex
+#service: gadget_api
