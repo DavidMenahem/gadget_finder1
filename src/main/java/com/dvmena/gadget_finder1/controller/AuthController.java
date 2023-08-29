@@ -13,7 +13,7 @@ import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("https://the-gadget-finder.ew.r.appspot.com/user")
+@RequestMapping("/user")
 public class AuthController {
 
     private final LoginService loginService;
