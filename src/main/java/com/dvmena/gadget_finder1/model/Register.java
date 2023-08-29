@@ -28,15 +28,19 @@ public class Register {
 
     @Column(nullable = false)
     private String password;
-
+    @Column
     private String mobile;
 
+    @Column
     private String street;
 
+    @Column
     private String streetNumber;
 
+    @Column
     private String city;
 
+    @Column
     private String zipcode;
 
 }
