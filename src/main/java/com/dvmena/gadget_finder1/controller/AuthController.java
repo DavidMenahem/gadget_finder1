@@ -21,8 +21,7 @@ public class AuthController {
     public String login(@RequestBody Login login){
         Optional<Register> register = registerService.get(login.getEmail());
         if(register.isPresent()){
-
-            if(register.get().getPassword().equals(login.getPassword().hashCode())) {
+            if(register.get().getPassword() == login.getPassword().hashCode()) {
                 return loginService.login(login.getEmail(), login.getPassword());
             }
         }
