@@ -6,11 +6,11 @@ import com.dvmena.gadget_finder1.service.LoginService;
 import com.dvmena.gadget_finder1.service.RegisterService;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonAppend;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
-@CrossOrigin
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/user")
@@ -21,7 +21,7 @@ public class AuthController {
     private final RegisterService registerService;
 
     @PostMapping("/login")
-    @JsonFormat
+    @ResponseBody
     public String login(@RequestBody Login login){
         Optional<Register> register = registerService.get(login.getEmail());
         if(register.isPresent()){
