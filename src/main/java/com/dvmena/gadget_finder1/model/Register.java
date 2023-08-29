@@ -17,29 +17,29 @@ public class Register {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private String fName;
+    @Column(name = "first_name",nullable = false)
+    private String user_name;
 
-    @Column(nullable = false)
-    private String lName;
+    @Column(name = "last_name",nullable = false)
+    private String user_last_name;
 
-    @Column(unique = true,nullable = false)
+    @Column(unique = true,name = "email",nullable = false)
     private String email;
 
-    @Column(nullable = false)
+    @Column(name="password",nullable = false)
     private String password;
-    @Column
+    @Column(name="mobile")
     private String mobile;
 
-    @Column
+    @Column(name = "street")
     private String street;
 
-    @Column
+    @Column(name = "street_number")
     private String streetNumber;
 
-    @Column
+    @Column(name = "city")
     private String city;
 
-    @Column
+    @Column(name = "zipcode")
     private String zipcode;
 }

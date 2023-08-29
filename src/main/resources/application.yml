@@ -20,7 +20,7 @@ spring:
     url: jdbc:mysql://sql7.freemysqlhosting.net:3306/sql7641820
     username: sql7641820
     password: DUHSK2Q2Lc
-    driverClassName: com.mysql.cj.jdbc.Driver
+#    driverClassName: com.mysql.cj.jdbc.Driver
 
 rsa:
   private-key: classpath:certs/private.pem
