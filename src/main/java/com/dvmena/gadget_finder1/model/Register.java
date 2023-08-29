@@ -27,7 +27,7 @@ public class Register {
     private String email;
 
     @Column(nullable = false)
-    private int password;
+    private String password;
     @Column
     private String mobile;
 
@@ -42,8 +42,4 @@ public class Register {
 
     @Column
     private String zipcode;
-
-    public void setPassword(String password) {
-        this.password = password.hashCode();
-    }
 }

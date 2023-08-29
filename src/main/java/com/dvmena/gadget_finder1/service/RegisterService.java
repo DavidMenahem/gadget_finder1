@@ -17,8 +17,8 @@ public class RegisterService {
         return registerRepository.save(register);
     }
 
-    public Optional<Register> get(String email){
-        Optional<Register> register = registerRepository.findByEmail(email);
+    public Register get(String email){
+        Register register = registerRepository.findByEmail(email);
         return register;
     }
 }

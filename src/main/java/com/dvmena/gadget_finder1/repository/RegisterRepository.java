@@ -8,5 +8,5 @@ import java.util.Optional;
 
 @Repository
 public interface RegisterRepository extends JpaRepository<Register,Long> {
-    public Optional<Register> findByEmail(String email);
+    Register findByEmail(String email);
 }

@@ -24,12 +24,11 @@ public class LoginService {
 //    private final CustomAuthenticationManager authenticationManager;
     private final RegisterService registerService;
     public String login(Login login){
-        Optional<Register> register = registerService.get(login.getEmail());
-        if(register.isPresent()){
-            if(register.get().getPassword() == login.getPassword().hashCode()) {
+       Register register = registerService.get(login.getEmail());
+
+            if(register.getPassword().equals(login.getPassword())){
                 return "User is logged in";
             }
-        }
         return "Wrong credentials";
     }
 
