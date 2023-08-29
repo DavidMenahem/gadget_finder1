@@ -14,6 +14,9 @@ spring:
   datasource:
     max-active: 1
     platform: mysql
+#    url: jdbc:mysql://localhost:3306/gadget
+#    username: root
+#    password: 1234
     url: jdbc:mysql://sql7.freemysqlhosting.net:3306/sql7641820
     username: sql7641820
     password: DUHSK2Q2Lc
