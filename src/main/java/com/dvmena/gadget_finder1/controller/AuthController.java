@@ -19,13 +19,7 @@ public class AuthController {
 
     @PostMapping("/login")
     public String login(@RequestBody Login login){
-        Optional<Register> register = registerService.get(login.getEmail());
-        if(register.isPresent()){
-            if(register.get().getPassword() == login.getPassword().hashCode()) {
-                return loginService.login(login.getEmail(), login.getPassword());
-            }
-        }
-        return "user not found";
+                return loginService.login(login);
     }
     @PostMapping("/register")
     public Register register(@RequestBody Register register){
