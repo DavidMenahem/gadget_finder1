@@ -35,6 +35,7 @@ public class AuthController {
 
                 String token =  loginService.login(login.getEmail(), login.getPassword());
                 ResponseEntity<String> response = new ResponseEntity<>(token,headers, HttpStatus.OK);
+                return response;
             }
         }
         return new ResponseEntity<String>("user not found",headers,HttpStatus.OK);
