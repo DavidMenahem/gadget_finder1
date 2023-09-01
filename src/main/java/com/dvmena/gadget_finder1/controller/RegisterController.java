@@ -1,21 +1,25 @@
 package com.dvmena.gadget_finder1.controller;
 
+import com.dvmena.gadget_finder1.model.LoginResponse;
 import com.dvmena.gadget_finder1.model.Register;
 import com.dvmena.gadget_finder1.service.RegisterService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
-@RequestMapping("/register")
+@RequestMapping("/user")
 @RequiredArgsConstructor
 public class RegisterController {
     private final RegisterService registerService;
 
-    @PostMapping
-    public Register register(@RequestBody Register register){
+    @PostMapping("/register")
+    public LoginResponse register(@RequestBody Register register){
         return registerService.register(register);
+    }
+    @GetMapping("/all")
+    public List<Register> getALl(){
+        return registerService.getAll();
     }
 }

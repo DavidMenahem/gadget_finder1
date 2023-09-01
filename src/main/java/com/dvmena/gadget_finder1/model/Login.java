@@ -1,7 +1,8 @@
 package com.dvmena.gadget_finder1.model;
 
-public class Login {
+import lombok.Builder;
 
+public class Login {
     private String email;
     private String password;
 

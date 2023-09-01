@@ -1,28 +1,3 @@
-
-logging:
-  level:
-    root: INFO
 spring:
-  jpa:
-    debug: true
-    database: mysql
-    hibernate:
-      #      enable_lazy_load_no_trans: true
-      ddl-auto: create-drop
-    properties.hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
-
-  datasource:
-    max-active: 1
-    platform: mysql
-#    url: jdbc:mysql://localhost:3306/gadget
-#    username: root
-#    password: 1234
-    url: jdbc:mysql://sql7.freemysqlhosting.net:3306/sql7641820
-    username: sql7641820
-    password: DUHSK2Q2Lc
-    driverClassName: com.mysql.cj.jdbc.Driver
-
-rsa:
-  private-key: classpath:certs/private.pem
-  public-key: classpath:certs/public.pem
-
+  profiles:
+    active: prod
