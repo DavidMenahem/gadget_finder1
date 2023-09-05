@@ -1,6 +1,7 @@
 package com.dvmena.gadget_finder1.service;
 
-import com.dvmena.gadget_finder1.model.LoginResponse;
+import com.dvmena.gadget_finder1.exceptions.ApplicationException;
+import com.dvmena.gadget_finder1.model.Response;
 import com.dvmena.gadget_finder1.model.Register;
 import com.dvmena.gadget_finder1.repository.RegisterRepository;
 import lombok.RequiredArgsConstructor;
@@ -15,19 +16,23 @@ public class RegisterService extends ResponseService{
 
     private final RegisterRepository registerRepository;
 
-    public LoginResponse register(Register register){
+    public Response register(Register register){
         String response;
-        Optional<Register> registerFromDatabase = registerRepository.findByEmail(register.getEmail());
+
+            Optional<Register> registerFromDatabase = registerRepository.findByEmail(register.getEmail());
+
         if(registerFromDatabase.isPresent()){
             response = "User already exists";
-
+            return super.loginResponseFailed(response);
         }else{
-            registerRepository.save(register);
+            Register register1 = registerRepository.save(register);
             response = "User created";
+            return  super.loginResponse(register1.getId(),
+                    register1.getEmail(),
+                    register1.getUserFirstName(),
+                    register1.getUserLastName(),
+                    response);
         }
-        return  super.loginResponse(register.getUser_first_name(),
-                register.getUser_last_name(),
-                response);
     }
 
     public Register get(String email){

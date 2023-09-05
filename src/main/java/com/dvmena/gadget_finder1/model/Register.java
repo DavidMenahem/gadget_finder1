@@ -17,17 +17,18 @@ public class Register {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "first_name",nullable = false)
-    private String user_first_name;
+    @Column(name = "user_first_name")
+    private String userFirstName;
 
-    @Column(name = "last_name",nullable = false)
-    private String user_last_name;
+    @Column(name = "user_last_name")
+    private String userLastName;
 
-    @Column(unique = true,name = "email",nullable = false)
+    @Column(unique = true,name = "email")
     private String email;
 
-    @Column(name="password",nullable = false)
+    @Column(name="password")
     private String password;
+
     @Column(name="mobile")
     private String mobile;
 

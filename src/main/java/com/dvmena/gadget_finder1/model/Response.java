@@ -3,11 +3,13 @@ package com.dvmena.gadget_finder1.model;
 import lombok.Builder;
 
 @Builder
-public class LoginResponse {
+public class Response {
     private String response;
-
     private String name;
 
+    private String email;
+
+    private Long userID;
     public String getResponse() {
         return response;
     }
@@ -22,5 +24,21 @@ public class LoginResponse {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Long getUserID() {
+        return userID;
+    }
+
+    public void setUserID(Long userID) {
+        this.userID = userID;
     }
 }

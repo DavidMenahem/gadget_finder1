@@ -1,13 +1,14 @@
 package com.dvmena.gadget_finder1.service;
 
-import com.dvmena.gadget_finder1.model.LoginResponse;
-import lombok.extern.java.Log;
+import com.dvmena.gadget_finder1.model.Response;
 
 public class ResponseService {
-    private LoginResponse loginResponse;
+    private Response loginResponse;
 
-    protected LoginResponse loginResponse(String firstname,String lastname,String response){
-        return LoginResponse.builder()
+    protected Response loginResponse(Long userID, String email, String firstname, String lastname, String response){
+        return Response.builder()
+                .userID(userID)
+                .email(email)
                 .name(nameBuilder(firstname,lastname))
                 .response(response)
                 .build();
@@ -19,5 +20,9 @@ public class ResponseService {
                         + " "
                         + lastname)
                 .toString();
+    }
+
+    protected Response loginResponseFailed(String response){
+        return Response.builder().response(response).build();
     }
 }
