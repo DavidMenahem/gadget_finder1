@@ -10,7 +10,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 @RestController
-@CrossOrigin
 @RequestMapping("/gadget/")
 @RequiredArgsConstructor
 public class GadgetController {

@@ -5,10 +5,11 @@ import com.dvmena.gadget_finder1.model.Response;
 import com.dvmena.gadget_finder1.model.Register;
 import com.dvmena.gadget_finder1.service.RegisterService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.aot.generate.AccessControl;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@CrossOrigin
 @RestController
 @RequestMapping("/user")
 @RequiredArgsConstructor
@@ -23,5 +24,15 @@ public class RegisterController {
     @GetMapping("/all")
     public List<Register> getALl(){
         return registerService.getAll();
+    }
+
+    @DeleteMapping("/delete/{user}")
+    public String deleteUser(@PathVariable String user){
+        Register register = registerService.get(user);
+        if(register != null) {
+            return registerService.deleteUser(register.getId(),register.getEmail());
+        }else{
+            return "User not found";
+        }
     }
 }

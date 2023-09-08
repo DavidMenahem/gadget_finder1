@@ -25,9 +25,7 @@ public class LoginService extends ResponseService{
             if(register !=null){
                 if(register.getPassword().equals(login.getPassword())){
                     response = "User is logged in";
-                    return super.loginResponse(register.getId(),register.getEmail(),register.getUserFirstName(),
-                            register.getUserLastName(),
-                            response);
+                    return super.loginResponse(register.getId(),register.getEmail(),response);
                 }else{
                     response =  "Wrong password";
                 }

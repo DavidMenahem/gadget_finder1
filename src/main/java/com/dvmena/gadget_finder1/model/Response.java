@@ -5,8 +5,6 @@ import lombok.Builder;
 @Builder
 public class Response {
     private String response;
-    private String name;
-
     private String email;
 
     private Long userID;
@@ -16,14 +14,6 @@ public class Response {
 
     public void setResponse(String response) {
         this.response = response;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getEmail() {

@@ -6,10 +6,12 @@ import com.dvmena.gadget_finder1.model.Register;
 import com.dvmena.gadget_finder1.repository.RegisterRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
+@Transactional
 @Service
 @RequiredArgsConstructor
 public class RegisterService extends ResponseService{
@@ -29,8 +31,6 @@ public class RegisterService extends ResponseService{
             response = "User created";
             return  super.loginResponse(register1.getId(),
                     register1.getEmail(),
-                    register1.getUserFirstName(),
-                    register1.getUserLastName(),
                     response);
         }
     }
@@ -46,5 +46,10 @@ public class RegisterService extends ResponseService{
 
     public List<Register> getAll(){
         return registerRepository.findAll();
+    }
+
+    public String deleteUser(Long id,String email){
+        registerRepository.deleteById(id);
+        return email + " account has been deleted";
     }
 }
