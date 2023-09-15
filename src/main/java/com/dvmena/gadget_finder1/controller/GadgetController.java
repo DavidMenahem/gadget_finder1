@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 @RestController
-@RequestMapping("/gadget/")
+@RequestMapping("/gadget")
 @RequiredArgsConstructor
 public class GadgetController {
     private final GadgetService gadgetService;
@@ -18,10 +18,6 @@ public class GadgetController {
     @PostMapping("/add")
     public Response add(@RequestBody Gadget gadget){
         return gadgetService.add(gadget);
-    }
-
-    @PutMapping Gadget update(@RequestBody Gadget gadget){
-        return gadgetService.update(gadget);
     }
 
     @GetMapping("/{gadgetId}")

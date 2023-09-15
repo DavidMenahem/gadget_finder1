@@ -42,8 +42,10 @@ public class GadgetService {
 
 
     public void delete(Long gadgetId) {
-
-        gadgetRepository.deleteById(gadgetId);
+        Optional<Gadget> gadget = gadgetRepository.findById(gadgetId);
+        if(gadget.isPresent()) {
+            gadgetRepository.deleteById(gadgetId);
+        }
     }
     public List<Gadget> getAll(Long userID){
         return gadgetRepository.findByUserID(userID);
